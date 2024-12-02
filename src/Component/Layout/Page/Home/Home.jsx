@@ -1,11 +1,28 @@
-import React from 'react';
+import Header from "../../SharedItem/Header/Header";
+import LeftNav from "../../SharedItem/LeftNav/LeftNav";
+import Navber from "../../SharedItem/Navber/Navber";
+import MidNav from "../MidNav/MidNav";
+import RightNav from "../RightNav/RightNav";
 
 const Home = () => {
-    return (
+  return (
+    <div>
+      <Header></Header>
+      <Navber></Navber>
+      <div className="grid grid-cols-1 md:grid-cols-4">
         <div>
-            <p className='text-rose-600 font-poppins font-bold'>this is Home</p>
+          <LeftNav></LeftNav>
         </div>
-    );
+
+        <div className="col-span-2">
+          <MidNav></MidNav>
+        </div>
+        <div>
+          <RightNav></RightNav>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Home;
