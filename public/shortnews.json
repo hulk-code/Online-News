@@ -1,0 +1,25 @@
+[
+    {
+      "id": 1,
+      "title": "Tech Giants Unveil AI Breakthrough",
+      "photo_url": "https://example.com/images/ai_breakthrough.jpg",
+      "category": "Technology",
+      "date": "2024-12-03"
+    },
+    {
+      "id": 2,
+      "title": "Global Markets Witness Sharp Decline",
+      "photo_url": "https://example.com/images/market_decline.jpg",
+      "category": "Business",
+      "date": "2024-12-03"
+    },
+    {
+      "id": 3,
+      "title": "Historic Climate Agreement Reached",
+      "photo_url": "https://example.com/images/climate_agreement.jpg",
+      "category": "Environment",
+      "date": "2024-12-03"
+    }
+    
+  ]
+  
