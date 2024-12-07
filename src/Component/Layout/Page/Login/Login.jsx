@@ -1,13 +1,26 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../AuthContext/AuthProvider/AuthProvider";
 
 const Login = () => {
-    const  submiteForm = e =>{
+    const{LoginUser}=useContext(AuthContext)
+    const navigateUser=useNavigate()
+    const  oldUser = e =>{
         
         e.preventDefault()
         const name=e.target.name.value;
         const email=e.target.email.value
         const password=e.target.password.value
         console.log(name,email,password);
+
+        LoginUser(email,password)
+        .then(result =>{
+            console.log(result);
+            navigateUser('/')
+        })
+        .catch(error =>{
+            console.log(error.code);
+        })
     }
   return (
     <div>
@@ -18,7 +31,7 @@ const Login = () => {
             <h1 className="text-5xl font-bold">Register Here</h1>
           </div>
           <div className="card bg-base-100 w-full max-w-sm  ">
-            <form onSubmit={submiteForm} className="card-body">
+            <form onSubmit={oldUser} className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Name</span>

@@ -1,8 +1,20 @@
 import { Link, NavLink } from "react-router-dom"; 
 import avatar from '../../../../assets/user.png'
+import { useContext } from "react";
+import { AuthContext } from "../../../AuthContext/AuthProvider/AuthProvider";
 
 
 const Navber = () => {
+  const{user ,logOutUser}=useContext(AuthContext)
+  const handleLogOut=()=>{
+     logOutUser()
+     .then(result =>{
+      console.log(result)
+     })
+     .catch(error =>{
+      console.log(error.code);
+     })
+  }
   return (
     <nav className="flex items-center justify-between px-6 py-4 bg-white text-black">
    
@@ -51,9 +63,17 @@ const Navber = () => {
           alt="avatar"
           className="w-10 h-10 rounded-full"
         />
-        <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
-         <Link to='/login'>Login</Link>
-        </button>
+        {
+          user?
+          <button onClick={handleLogOut} className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+          Logout
+         </button>:
+          <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+          <Link to='/login'>Login</Link>
+         </button>
+
+        }
+       
       </div>
     </nav>
   );
