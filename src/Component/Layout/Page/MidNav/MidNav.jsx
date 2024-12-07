@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import AllNews from "./AllNews/AllNews";
 
+
 const MidNav = () => {
   const [allNews, setAllNews] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
