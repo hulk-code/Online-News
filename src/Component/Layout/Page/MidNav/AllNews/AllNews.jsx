@@ -2,17 +2,18 @@
 import { useState } from "react";
 import { FaEye, FaRegStar, FaShare, FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { FaBookBookmark } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const AllNews = ({ todayNews }) => {
-  const [showFullDetails, setShowFullDetails] = useState(false);
+  // const [showFullDetails, setShowFullDetails] = useState(false);
   const { number } = todayNews.rating;
   const fullStars = Math.floor(number);
   const halfStar = number % 1 !== 0;
 
-  const detailsPreview = todayNews?.details.slice(
-    0,
-    Math.ceil(todayNews.details.length / 4)
-  );
+  // const detailsPreview = todayNews?.details.slice(
+  //   0,
+  //   Math.ceil(todayNews.details.length / 4)
+  // );
 
   return (
     <div>
@@ -48,7 +49,14 @@ const AllNews = ({ todayNews }) => {
         />
 
         <div className="card-body">
-          <h2 className="card-title">
+          {
+            todayNews.details.length>200 ?
+            <p> {todayNews.details.slice (0 ,200)}<Link to={`/todayNews/${todayNews.category_id}`} className="text-red-600 font-bold"> read More</Link></p>
+            :
+            <p>{todayNews.details}</p>
+          }
+
+          {/* <h2 className="card-title">
             <h1>
               {showFullDetails ? todayNews.details : `${detailsPreview}...`}
             </h1>
@@ -59,7 +67,7 @@ const AllNews = ({ todayNews }) => {
             className="text-blue-500 font-semibold mt-2 hover:underline"
           >
             {showFullDetails ? "Read Less" : "Read More"}
-          </button>
+          </button> */}
           <hr />
 
           <div className="card-actions justify-end">
